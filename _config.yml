@@ -3,7 +3,7 @@ title: Not Pure Poole
 description: A simple, beautiful, and powerful Jekyll theme for blogs
 url: https://vszhub.github.io
 avatar: /avatar.jpeg
-paginate: 5
+paginate: 8
 permalink: pretty
 cover_image: /bg.jpeg
 
@@ -54,6 +54,14 @@ sass:
 
 # Specify the author for blog posts
 author:
-  name: Songzi Vong
-  url: https://github.com/vszhub/
-  email: vszhub@gmail.com
+  name: Capablezzm
+  url: https://capablezzm.github.io
+  email: capablezzm@gmail.com
+
+
+# Gitalk
+gitalk:
+  clientID: Ov23liKungWoMtehgqQc
+  clientSecret: c90234a15a7d4c124ae8096fd0dde3870b48914d
+  repo: capablezzm.github.io
+  owner: capablezzm
