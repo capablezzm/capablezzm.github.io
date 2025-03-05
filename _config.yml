@@ -1,7 +1,7 @@
 # Setup
-title: Not Pure Poole
-description: A simple, beautiful, and powerful Jekyll theme for blogs
-url: https://vszhub.github.io
+title: Capablezzm's Blog
+description: 一个记录技术与生活的地方
+url: https://capablezzm.github.io
 avatar: /avatar.jpeg
 paginate: 8
 permalink: pretty
@@ -33,7 +33,7 @@ twitter:
   card: summary
 logo: logo.png
 social:
-  name: Songzi Vong
+  name: capablezzm
   links:
     - https://twitter.com/vszhub
     - https://github.com/vszhub

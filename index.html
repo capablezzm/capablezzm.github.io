@@ -1,3 +1,294 @@
 ---
-layout: home
+layout: default
 ---
+
+<!-- 菜单页 -->
+<div>
+  <h2 style="text-align: center; font-size: 24px; color: #333; margin-top: 20px;">菜单页布局</h2>
+</div>
+
+<style>
+  /* 基本的全局样式 */
+  * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-decoration: none;
+      font-weight: 520;
+      font-family: 微软雅黑, Arial, sans-serif;
+  }
+
+  /* 主导航栏样式 */
+  #nav {
+      width: 300px;
+      height: 72px;
+      background-color: rgb(247, 249, 250);
+      border-radius: 20px;
+      margin: 20px auto;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  #nav>ul {
+      list-style: none;
+      padding-left: 0;
+      text-align: center;
+  }
+
+  li {
+      /* 去掉li前面的小圆点 */
+      list-style: none;
+  }
+
+  #nav>ul>li {
+      display: inline-block;
+      width: 60px;
+      height: 72px;
+      line-height: 72px;
+      text-align: center;
+      margin: 0 5px;
+  }
+
+  #nav>ul>li>a {
+      display: block;
+      font-size: 18px;
+      color: #333;
+      text-transform: uppercase;
+      transition: color 0.3s;
+  }
+
+  #nav>ul>li>a:hover {
+      color: #FF6347; /* 橙色 */
+  }
+
+  /* 样式化标签 */
+  ul>span {
+      line-height: 72px;
+      color: rgb(225, 224, 224);
+      font-weight: 800;
+      font-size: 24px;
+  }
+
+  #nav>ul>li>.a1 {
+      color: #FF0036;
+  }
+
+  #nav>ul>li>.a2 {
+      color: rgb(101, 198, 58);
+  }
+
+  /* 搜索框样式 */
+  .search-container {
+      margin: 20px;
+      text-align: center;
+  }
+
+  #search-input {
+      width: 90%;
+      height: 40px;
+      padding: 0px 16px;
+      border-radius: 20px;
+      border: 1px solid #c0c0c0;
+      font-size: 16px;
+      font-weight: bold;
+      outline: none;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+      transition: box-shadow 0.3s ease;
+  }
+
+  #search-input:focus {
+      box-shadow: 0 0 8px rgba(102, 175, 233, 1);
+  }
+
+  .posts {
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .post {
+      margin-bottom: 30px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .post h1 {
+      font-size: 22px;
+      color: #333;
+      margin-bottom: 15px;
+  }
+
+  .meta {
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 15px;
+  }
+
+  .meta .date {
+      font-weight: bold;
+  }
+
+  .meta .tag li {
+      display: inline;
+      margin-right: 10px;
+  }
+
+  .meta .tag li a {
+      color: #0073e6;
+      font-weight: bold;
+  }
+
+  .entry {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.6;
+      margin-bottom: 15px;
+  }
+
+  .read-more {
+      font-size: 16px;
+      color: #0073e6;
+      text-decoration: underline;
+      font-weight: bold;
+  }
+
+  .pagination {
+      text-align: center;
+      margin-top: 20px;
+  }
+
+  .pagination .prev, .pagination .next {
+      margin: 0 15px;
+  }
+
+  .pagination a {
+      font-size: 16px;
+      color: #0073e6;
+      text-decoration: none;
+      font-weight: bold;
+  }
+
+  .pagination a:hover {
+      text-decoration: underline;
+  }
+
+  /* 实时时间样式 */
+  #current-time {
+      font-size: 18px;
+      margin-top: 20px;
+      font-weight: bold;
+      color: #333;
+  }
+</style>
+
+<!-- 搜索功能 -->
+<div class="search-container">
+  <input type="text" id="search-input" placeholder="Search blog posts..." />
+  <ul id="results-container"></ul>
+</div>
+
+<script src="{{ site.baseurl }}/js/simple-jekyll-search.min.js"></script>
+
+<script>
+  window.simpleJekyllSearch = new SimpleJekyllSearch({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '{{ site.baseurl }}/search.json',
+    searchResultTemplate: '<li><a href="{url}?query={query}" title="{desc}">{title}</a></li>',
+    noResultsText: 'No results found',
+    limit: 10,
+    fuzzy: false,
+    exclude: ['Welcome']
+  });
+</script>
+
+<!-- 实时时间显示 -->
+<div id="current-time" style="text-align: center;"></div>
+
+<script>
+  function updateTime() {
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+    const timeString = `${hours}:${minutes}:${seconds}`;
+    document.getElementById('current-time').textContent = 'Current Time: ' + timeString;
+  }
+
+  // 每秒更新一次时间
+  setInterval(updateTime, 1000);
+
+  // 初始化显示一次
+  updateTime();
+</script>
+
+<!-- 文章列表 -->
+{% if site.posts.size == 0 %}
+  <h2>No post found</h2>
+{% endif %}
+
+<div class="posts">
+  {% for post in paginator.posts %}
+  {% unless post.draft %}
+    <article class="post">
+      <h1>
+        <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+      </h1>
+
+      <div class="meta">
+        <span class="date">
+          {{ post.date | date: "%Y-%m-%d" }}
+        </span>
+
+        <ul class="tag">
+          {% for tag in post.tags %}
+          <li>
+            <a href="{{ site.url }}{{ site.baseurl }}/tags#{{ tag }}">
+              {{ tag }}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="entry">
+        {{ post.excerpt | truncate: 200 }}
+      </div>
+
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+    </article>
+  {% endunless %}
+  {% endfor %}
+</div>
+
+<!-- 分页 -->
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <span class="prev">
+      <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}" class="prev">
+        ← 上一页
+      </a>
+    </span>
+  {% endif %}
+  {% if paginator.next_page %}
+    <span class="next">
+      <a href="{{ site.baseurl}}{{ paginator.next_page_path }}" class="next">
+        下一页 →
+      </a>
+    </span>
+  {% endif %}
+</div>
+
+<!-- 访客统计 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div align="center">
+  <span id="busuanzi_container_site_pv" style="font-family: Consolas; color: Silver; font-size: 12px;">
+    View: <span id="busuanzi_value_site_pv" style="font-family: Consolas; color: Silver; font-size: 12px;"></span>
+  </span>
+  <span id="busuanzi_container_site_uv" style="font-family: Consolas; color: Silver; font-size: 12px;">
+    User: <span id="busuanzi_value_site_uv" style="font-family: Consolas; color: Silver; font-size: 12px;"></span>
+  </span>
+</div>
