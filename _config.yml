@@ -59,6 +59,8 @@ author:
   email: capablezzm@gmail.com
 
 
+post_asset_folder: true
+
 # Gitalk
 gitalk:
   clientID: Ov23liKungWoMtehgqQc
