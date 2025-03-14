@@ -29,13 +29,13 @@ exclude:
 
 # Optimize Jekyl SEO Tag
 twitter:
-  username: vszhub
+  username: 
   card: summary
 logo: logo.png
 social:
   name: capablezzm
   links:
-    - https://twitter.com/vszhub
+    - https://twitter.com/
     - https://github.com/capablezzm
 google_site_verification: xxxxx
 lang: en
