@@ -1,8 +1,27 @@
 ---
 layout: page
 title: About
+permalink: /about/
 ---
 
-**Not Pure Poole** is a simple, beautiful, and powerful Jekyll theme for blogs. It is built on [Poole](https://github.com/poole/poole) and [Pure](https://purecss.io/).
+## 关于我
+你好，我是capablezzm。
 
-For more information about Not Pure Poole, please browse the [README](https://github.com/vszhub/not-pure-poole) file.
+一个准备转行的生物信息学硕士，本博客旨在记录学习过程，构建个人知识库。
+
+
+```
+岱岳云横，嘉陵烟濛。
+负笈来，六载霜风。
+蓬门荆钗，未减青瞳。
+惯晓星残，秋衾薄，砚池空。
+
+形举常招蜚语，志高难掩冰澄。
+问前程、雾锁千峰。
+烟波江上，何觅归篷？
+待破层云，掬明月，照归程。
+```
+
+## 版权声明
+
+博客文章是我原创文章及个人知识库，存档于_posts 文件夹下，版权归我所有，转载请与我联系获得授权许可。
