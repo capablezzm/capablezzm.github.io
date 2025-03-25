@@ -22,6 +22,7 @@ zotero的网页插件在导入文献时非常好用，但有的时候，部分�
 # 2.输入下面的JavaScript代码
 
 ```JavaScript
+
 zoteroPane = Zotero.getActiveZoteroPane();
 items = zoteroPane.getSelectedItems();
 var rn=0; //计数替换条目个数
@@ -50,6 +51,7 @@ rn+=1;
 }
 }
 return rn+"个条目语言被替换为"+lan+"。"
+
 
 ```
 
